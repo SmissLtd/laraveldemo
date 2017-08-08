@@ -37,7 +37,9 @@ class AdminController extends Controller
     
     public function categories()
     {
-        return 'categories';
+        return view('admin.categories', [
+            'models' => Category::paginate(Config::ADMIN_PAGE_SIZE)
+        ]);
     }
     
     public function products()
