@@ -44,7 +44,7 @@
                             <ul class="dropdown-menu">
                               <li><a href="{{ action('Admin\AdminController@orders') }}">Orders</a></li>
                               <li><a href="{{ action('Admin\AdminController@contacts') }}">Contacts</a></li>
-                              <li><a href="{{ action('Admin\AdminController@newslatters') }}">Newslatters</a></li>
+                              <li><a href="{{ action('Admin\AdminController@newsletters') }}">Newsletters</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ action('Admin\AdminController@users') }}">Users</a></li>

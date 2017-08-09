@@ -5,3 +5,47 @@ th.column-id {
 th.column-actions {
     width: 150px;
 }
+
+.dashboard > div {
+    width: 220px;
+    height: 220px;
+    float: left;
+    padding: 10px;
+}
+
+.dashboard:after {
+    display: block;
+    height: 0;
+    clear: both;
+    content: "";
+}
+
+.dashboard a {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border: solid 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 200px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    font-size: 72px;
+    color: black;
+    position: relative;
+}
+
+.dashboard a:hover {
+    border-color: rgba(0, 0, 255, 0.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 255, 0.5);
+}
+
+.dashboard .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.dashboard .badge.new {
+    background-color: red;
+    top: 30px;
+}

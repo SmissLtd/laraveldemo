@@ -40,7 +40,7 @@ Route::middleware(['admin'])->group(function() {
     Route::get('admin/products', 'Admin\AdminController@products');
     Route::get('admin/orders', 'Admin\AdminController@orders');
     Route::get('admin/contacts', 'Admin\AdminController@contacts');
-    Route::get('admin/newslatters', 'Admin\AdminController@newslatters');
+    Route::get('admin/newsletters', 'Admin\AdminController@newsletters');
     Route::get('admin/users', 'Admin\AdminController@users');
     Route::get('admin/settings', 'Admin\AdminController@settings');
     

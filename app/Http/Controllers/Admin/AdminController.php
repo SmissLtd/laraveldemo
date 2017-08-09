@@ -18,7 +18,18 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        return view('admin.dashboard', [
+            'brands' => Brand::count(),
+            'tags' => Tag::count(),
+            'categories' => Category::count(),
+            'products' => Product::count(),
+            'orders' => Order::count(),
+            'newOrders' => Order::where('status', Order::STATUS_NEW)->count(),
+            'contacts' => Contact::count(),
+            'newContacts' => Contact::where('status', Contact::STATUS_NEW)->count(),
+            'newsletters' => Newsletter::count(),
+            'users' => User::count(),
+        ]);
     }
     
     public function brands()
@@ -57,9 +68,9 @@ class AdminController extends Controller
         return 'contacts';
     }
     
-    public function newslatters()
+    public function newsletters()
     {
-        return 'newslatters';
+        return 'newsletters';
     }
     
     public function users()

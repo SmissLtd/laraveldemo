@@ -1,6 +1,7 @@
 <?php
 /**
  * @param App\Category $model
+ * @param App\Tag[] $tags
  */
 ?>
 @extends('layouts.admin')
@@ -50,7 +51,17 @@
                 <input type="file" class="form-control" id="input-photo_big" name="photo_big" accept="image/*" />
             </div>
 
-            <!-- TAGS -->
+            <h3>Tags</h3>
+            <hr />
+            @foreach ($tags as $tag)
+                <div class="checkbox">
+                    <label>
+                        <input type="hidden" name="tag[{{ $tag->id }}]" value="0" />
+                        <input type="checkbox" name="tag[{{ $tag->id }}]" value="1"{{ $model->tags()->where('tag_id', $tag->id)->first() ? (' checked="checked"') : ''}} />
+                        {{ $tag->name }}
+                    </label>
+                </div>
+            @endforeach
             
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Save</button>

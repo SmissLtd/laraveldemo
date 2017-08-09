@@ -25,11 +25,11 @@ class Category extends \Illuminate\Database\Eloquent\Model
     
     public function products()
     {
-        return $this->belongsToMany('App\Product');
+        return $this->belongsToMany('App\Product')->whereNull('category_product.deleted_at');
     }
     
     public function tags()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('App\Tag')->whereNull('category_tag.deleted_at');
     }
 }
