@@ -55,4 +55,8 @@ Route::middleware(['admin'])->group(function() {
     Route::get('admin/category/form/{model?}', 'Admin\CategoryController@form');
     Route::post('admin/category/submit', 'Admin\CategoryController@submit');
     Route::post('admin/category/delete', 'Admin\CategoryController@delete');
+    
+    Route::get('admin/product/form/{model?}', 'Admin\ProductController@form');
+    Route::post('admin/product/submit', 'Admin\ProductController@submit');
+    Route::post('admin/product/delete', 'Admin\ProductController@delete');
 });

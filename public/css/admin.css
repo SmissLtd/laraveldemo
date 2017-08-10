@@ -49,3 +49,53 @@ th.column-actions {
     background-color: red;
     top: 30px;
 }
+
+.category-photo {
+    width: 295px;
+    height: 213px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: solid 1px lightblue;
+}
+
+.category-photo_big {
+    width: 270px;
+    height: 213px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: solid 1px lightblue;
+    position: relative;
+}
+
+.category-photo_big label {
+    position: absolute;
+    top: 0px;
+    right: -80px;
+}
+
+.product-photo {
+    width: 147px;
+    height: 213px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: solid 1px lightblue;
+}
+
+.product-photo_big {
+    width: 147px;
+    height: 213px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: solid 1px lightblue;
+    position: relative;
+}
+
+.product-photo_big label {
+    position: absolute;
+    top: 0px;
+    right: -80px;
+}

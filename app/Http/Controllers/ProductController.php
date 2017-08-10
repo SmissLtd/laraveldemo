@@ -159,14 +159,17 @@ class ProductController extends Controller
         $order->message = $request->input('message', null);
         $order->save();
         foreach ($cart['products'] as $id => $data)
-        {
-            $product = new OrderProduct();
-            $product->order_id = $order->id;
-            $product->product_id = $id;
-            $product->count = $data['count'];
-            $product->price = $data['price'];
-            $product->save();
-        }
+            if ($model = Product::find($id))
+            {
+                $model->sold += $data['count'];
+                $model->save();
+                $product = new OrderProduct();
+                $product->order_id = $order->id;
+                $product->product_id = $id;
+                $product->count = $data['count'];
+                $product->price = $data['price'];
+                $product->save();
+            }
         session(['cart' => ['total' => 0]]);
         return view('products.bought');
     }

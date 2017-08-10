@@ -14,3 +14,4 @@ yarn-error.log
 /composer.lock
 /yarn.lock
 /public/photos
+/public/images

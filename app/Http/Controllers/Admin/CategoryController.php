@@ -20,31 +20,37 @@ class CategoryController extends Controller
     
     public function submit(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:128',
-            'is_special' => 'boolean',
-            'discount' => 'integer|min:0|max:100',
-            'photo' => 'required|image',
-            'photo_big' => 'image'
-        ]);
-        // Model
         if ($id = $request->input('id'))
             $model = Category::find($id);
         else
             $model = new Category();
+        $rules = [
+            'name' => 'required|max:128',
+            'is_special' => 'boolean',
+            'discount' => 'integer|min:0|max:100',
+            'photo_big' => 'image'
+        ];
+        if (empty($model->photo))
+            $rules['photo'] = 'required|image';
+        else
+            $rules['photo'] = 'image';
+        $this->validate($request, $rules);
         $model->name = $request->input('name');
         $model->is_special = $request->input('is_special');
         $model->discount = $request->input('discount');
-        $photo = $request->file('photo');
-        $model->photo = time() . '-' . $photo->getClientOriginalName();
-        $photo->move(public_path('/photos'), $model->photo);
+        if ($request->hasFile('photo'))
+        {
+            $photo = $request->file('photo');
+            $model->photo = time() . '-' . $photo->getClientOriginalName();
+            $photo->move(public_path('/images'), $model->photo);
+        }
         if ($request->hasFile('photo_big'))
         {
             $photo = $request->file('photo_big');
             $model->photo_big = time() . '-' . $photo->getClientOriginalName();
-            $photo->move(public_path('/photos'), $model->photo_big);
+            $photo->move(public_path('/images'), $model->photo_big);
         }
-        else
+        else if ($request->input('delete_photo_big'))
             $model->photo_big = null;
         $model->save();
         // Tags
