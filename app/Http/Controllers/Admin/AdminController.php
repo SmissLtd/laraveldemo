@@ -62,12 +62,16 @@ class AdminController extends Controller
     
     public function orders()
     {
-        return 'orders';
+        return view('admin.orders', [
+            'models' => Order::paginate(Config::ADMIN_PAGE_SIZE)
+        ]);
     }
     
     public function contacts()
     {
-        return 'contacts';
+        return view('admin.contacts', [
+            'models' => Contact::paginate(Config::ADMIN_PAGE_SIZE)
+        ]);
     }
     
     public function newsletters()

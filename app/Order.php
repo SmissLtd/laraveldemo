@@ -33,4 +33,20 @@ class Order extends \Illuminate\Database\Eloquent\Model
     {
         return $this->hasMany('App\OrderProduct');
     }
+    
+    public function total()
+    {
+        $result = 0;
+        foreach ($this->products as $product)
+            $result += $product->count * $product->price;
+        return $result;
+    }
+    
+    public function count()
+    {
+        $result = 0;
+        foreach ($this->products as $product)
+            $result += $product->count;
+        return $result;
+    }
 }

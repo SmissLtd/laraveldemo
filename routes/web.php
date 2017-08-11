@@ -59,4 +59,12 @@ Route::middleware(['admin'])->group(function() {
     Route::get('admin/product/form/{model?}', 'Admin\ProductController@form');
     Route::post('admin/product/submit', 'Admin\ProductController@submit');
     Route::post('admin/product/delete', 'Admin\ProductController@delete');
+    
+    Route::get('admin/order/form/{model?}', 'Admin\OrderController@form');
+    Route::post('admin/order/submit', 'Admin\OrderController@submit');
+    Route::post('admin/order/delete', 'Admin\OrderController@delete');
+    
+    Route::get('admin/contact/form/{model?}', 'Admin\ContactController@form');
+    Route::post('admin/contact/submit', 'Admin\ContactController@submit');
+    Route::post('admin/contact/delete', 'Admin\ContactController@delete');
 });

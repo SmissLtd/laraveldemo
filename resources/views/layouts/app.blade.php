@@ -17,7 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href="{{ asset('css/bootstrap-3.1.1.min.css') }}" rel='stylesheet' type='text/css' />
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />	
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
         <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/popuo-box.css') }}" rel="stylesheet" type="text/css" media="all"/>
         <link href="{{ asset('css/flexslider.css') }}" rel="stylesheet" type="text/css" media="screen" />
