@@ -76,16 +76,25 @@ class AdminController extends Controller
     
     public function newsletters()
     {
-        return 'newsletters';
+        return view('admin.newsletters', [
+            'models' => Newsletter::paginate(Config::ADMIN_PAGE_SIZE)
+        ]);
     }
     
     public function users()
     {
-        return 'users';
+        return view('admin.users', [
+            'models' => User::paginate(Config::ADMIN_PAGE_SIZE)
+        ]);
     }
     
     public function settings()
     {
-        return 'settings';
+        return view('admin.sessings');
+    }
+    
+    public function submitSettings(Request $request)
+    {
+        
     }
 }

@@ -42,7 +42,7 @@ class Order extends \Illuminate\Database\Eloquent\Model
         return $result;
     }
     
-    public function count()
+    public function totalProductCount()
     {
         $result = 0;
         foreach ($this->products as $product)

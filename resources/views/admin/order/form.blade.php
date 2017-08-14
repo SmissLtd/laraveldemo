@@ -91,7 +91,7 @@
                 <tfoot>
                     <tr>
                         <td><b>Total:</b></td>
-                        <td>{{ number_format($model->count(), 0) }}</td>
+                        <td>{{ number_format($model->totalProductCount(), 0) }}</td>
                         <td colspan="2" class="text-center"><b>${{ number_format($model->total(), 2) }}</b></td>
                     </tr>
                 </tfoot>

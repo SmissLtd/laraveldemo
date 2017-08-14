@@ -43,6 +43,7 @@ Route::middleware(['admin'])->group(function() {
     Route::get('admin/newsletters', 'Admin\AdminController@newsletters');
     Route::get('admin/users', 'Admin\AdminController@users');
     Route::get('admin/settings', 'Admin\AdminController@settings');
+    Route::post('admin/submit-settings', 'Admin\AdminController@submitSettings');
     
     Route::get('admin/brand/form/{model?}', 'Admin\BrandController@form');
     Route::post('admin/brand/submit', 'Admin\BrandController@submit');
@@ -67,4 +68,12 @@ Route::middleware(['admin'])->group(function() {
     Route::get('admin/contact/form/{model?}', 'Admin\ContactController@form');
     Route::post('admin/contact/submit', 'Admin\ContactController@submit');
     Route::post('admin/contact/delete', 'Admin\ContactController@delete');
+    
+    Route::get('admin/newsletter/form/{model?}', 'Admin\NewsletterController@form');
+    Route::post('admin/newsletter/submit', 'Admin\NewsletterController@submit');
+    Route::post('admin/newsletter/delete', 'Admin\NewsletterController@delete');
+    
+    Route::get('admin/user/form/{model?}', 'Admin\UserController@form');
+    Route::post('admin/user/submit', 'Admin\UserController@submit');
+    Route::post('admin/user/delete', 'Admin\UserController@delete');
 });
