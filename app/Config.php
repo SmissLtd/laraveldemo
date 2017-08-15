@@ -24,4 +24,9 @@ class Config extends \Illuminate\Database\Eloquent\Model
             return $model->value;
         return $default;
     }
+    
+    public static function setValue($name, $value)
+    {
+        Config::updateOrCreate(['name' => $name], ['value' => $value]);
+    }
 }

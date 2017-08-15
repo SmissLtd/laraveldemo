@@ -90,11 +90,28 @@ class AdminController extends Controller
     
     public function settings()
     {
-        return view('admin.sessings');
+        return view('admin.settings', [
+            'categories' => Category::all()
+        ]);
     }
     
     public function submitSettings(Request $request)
     {
-        
+        $this->validate($request, [
+            'address' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'phone_full' => 'required|max:255',
+            'phone_short' => 'required|max:255',
+            'index_offers_category' => 'required|exists:categories,id',
+            'index_products_category' => 'required|exists:categories,id'
+        ]);
+        Config::setValue('address', $request->input('address'));
+        Config::setValue('email', $request->input('email'));
+        Config::setValue('phone_full', $request->input('phone_full'));
+        Config::setValue('phone_short', $request->input('phone_short'));
+        Config::setValue('index_offers_category', $request->input('index_offers_category'));
+        Config::setValue('index_products_category', $request->input('index_products_category'));
+        $request->session()->flash('message', 'Settings have been successfully saved');
+        return redirect('/admin/settings');
     }
 }

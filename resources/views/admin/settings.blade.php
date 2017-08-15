@@ -1,5 +1,13 @@
 <?php
+/**
+ * @param App\Category[] $categories
+ */
+
 use App\Config;
+
+$offeredCategoryId = Config::getValue(Config::INDEX_OFFERS_CATEGORY);
+$offeredProductsCategoryId = Config::getValue(Config::INDEX_PRODUCTS_CATEGORY);
+$message = session('message');
 ?>
 @extends('layouts.admin')
 
@@ -8,6 +16,12 @@ use App\Config;
         <li><a href="{{ action('Admin\AdminController@index') }}">Dashboard</a></li>
         <li class="active">Settings</li>
     </ol>
+
+    @if (!empty($message))
+        <div class="alert alert-success">
+            {{ $message }}
+        </div>
+    @endif
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -42,7 +56,17 @@ use App\Config;
             <div class="form-group">
                 <label for="input-index_offers_category" class="control-label">Offered Category(on home page)</label>
                 <select class="form-control" id="input-index_offers_category" name="index_offers_category">
-                    
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}"{{ $category->id == $offeredCategoryId ? ' selected="selected"' : '' }}>{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="input-index_products_category" class="control-label">Offered Products Category(on home page)</label>
+                <select class="form-control" id="input-index_products_category" name="index_products_category">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}"{{ $category->id == $offeredProductsCategoryId ? ' selected="selected"' : '' }}>{{ $category->name }}</option>
+                    @endforeach
                 </select>
             </div>
 
