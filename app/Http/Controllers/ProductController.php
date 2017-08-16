@@ -35,7 +35,7 @@ class ProductController extends Controller
         $categories = Category::where('is_special', false)->take(5)->get();
         $bestsellers = $brand->products()->orderBy('sold', 'desc')->take(4)->get();
         return view('products.category', [
-            'tags' => $category->tags,
+            'tags' => $brand->tags,
             'products' => $products,
             'title' => $title,
             'categories' => $categories,
